@@ -52,7 +52,6 @@ class DataCollatorForLanguageModeling:
 		else:
 			batch = {"input_ids": _collate_batch(examples, self.tokenizer, pad_to_multiple_of=self.pad_to_multiple_of)}
 
-
 		# If special token mask has been preprocessed, pop it from the dict.
 		special_tokens_mask = batch.pop("special_tokens_mask", None)
 		if self.mlm:
@@ -139,13 +138,12 @@ if __name__ == '__main__':
 		tokenizer=tokenizer, mlm=True, mlm_probability=0.15
 	)
 
-	x = data_collator([{'input_ids': torch.tensor([1, 2, 3, 4, 5]*3, dtype=torch.long)},
-	               {'input_ids': torch.tensor([4, 5, 6]*3, dtype=torch.long)},
-	               {'input_ids': torch.tensor([7, 8, 9, 10, 11, 12, 13,]*3, dtype=torch.long)}])
-
+	x = data_collator([{'input_ids': torch.tensor([1, 2, 3, 4, 5] * 3, dtype=torch.long)},
+	                   {'input_ids': torch.tensor([4, 5, 6] * 3, dtype=torch.long)},
+	                   {'input_ids': torch.tensor([7, 8, 9, 10, 11, 12, 13, ] * 3, dtype=torch.long)}])
 
 	print(x)
 
-	y = [[1, 2, 3, 4, 5]*3, [4, 5, 6]*3, [7, 8, 9, 10, 11, 12, 13,]*3]
+	y = [[1, 2, 3, 4, 5] * 3, [4, 5, 6] * 3, [7, 8, 9, 10, 11, 12, 13, ] * 3]
 	y = data_collator(y)
 	print(y)
