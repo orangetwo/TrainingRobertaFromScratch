@@ -55,7 +55,7 @@ model = RobertaForMaskedLM(config=config)
 
 
 training_args = TrainingArguments(
-    output_dir="./EsperBERTo",
+    output_dir="./EsperBERToX",
     overwrite_output_dir=True,
     num_train_epochs=5,
     per_gpu_train_batch_size=12,
@@ -74,4 +74,4 @@ trainer = Trainer(
 )
 
 trainer.train()
-trainer.save_model("./EsperBERTo")
+trainer.save_model("./EsperBERToX")
