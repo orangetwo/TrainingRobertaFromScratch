@@ -11,7 +11,7 @@ import torch
 from torch.utils.data import Dataset
 from transformers import PreTrainedTokenizer
 
-logger = logging.get_logger(__name__)
+logger = logging.getLogger(__name__)
 
 DEPRECATION_WARNING = (
     "This dataset will be removed from the library soon, preprocessing should be handled with the 🤗 Datasets "
